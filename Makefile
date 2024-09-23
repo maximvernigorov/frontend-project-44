@@ -8,3 +8,7 @@ make lint:
 	npx eslint .
 make prettier:
 	npx prettier --write .
+brain-even:
+	node bin/brain-even.js
+link:
+	npm link
