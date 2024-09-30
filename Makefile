@@ -4,11 +4,19 @@ brain-games:
 	node bin/brain-games.js
 publish:
 	npm publish --dry-run
-make lint:
+lint:
 	npx eslint .
-make prettier:
+prettier:
 	npx prettier --write .
 brain-even:
 	node bin/brain-even.js
 link:
 	npm link
+brain-calc:
+	node bin/brain-calc.js
+brain-gcd:
+	node bin/brain-gcd.js
+brain-progression:
+	node bin/brain-progression.js
+brain-prime:
+	node bin/brain-prime.js

@@ -1,19 +1,37 @@
 import game from "../index.js";
 
-const descrition = 'What is the result of the expression?';
+import randomInteger from "../randomnumber.js";
 
-function randomInteger(min, max) {
-  let rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-}
+const calculationСorrectAnswer = (num1, action, num2) => {
+  let result = 0;
+  switch (action) {
+    case "+":
+      result = num1 + num2;
+      break;
+    case "-":
+      result = num1 - num2;
+      break;
+    case "*":
+      result = num1 * num2;
+      break;
+    default:
+      console.log("error");
+  }
+  return result;
+};
 
-const expression = () => {
-  const question = randomInteger(1, 15);
-  const currectAnswer = IsEven(question) ? "yes" : "no";
-
-  return [question, currectAnswer];
+const description = "What is the result of the expression?";
+const getGameData = () => {
+  const num1 = randomInteger(1, 100);
+  const num2 = randomInteger(1, 100);
+  const arrAction = ["+", "-", "*"];
+  const action = arrAction[Math.floor(Math.random() * arrAction.length)];
+  const correctAnswer = calculationСorrectAnswer(num1, action, num2);
+  const question = `${num1} ${action} ${num2}`;
+  const gameData = [question, correctAnswer.toString()];
+  return gameData;
 };
 
 export default () => {
-  game(descrition, getQuistionAndAnswer);
+  game(description, getGameData);
 };
